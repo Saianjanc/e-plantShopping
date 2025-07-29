@@ -230,7 +230,7 @@ function ProductList({ onHomeClick }) {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '1100px',
+        width: '50%',
     }
     const styleA = {
         color: 'white',
@@ -276,7 +276,7 @@ function ProductList({ onHomeClick }) {
                 alt=""
               />
               <a href="/" onClick={(e) => handleHomeClick(e)}>
-                <div>
+                <div style={{marginLeft: "10px"}}>
                   <h3 style={{ color: "white" }}>Paradise Nursery</h3>
                   <i style={{ color: "white" }}>Where Green Meets Serenity</i>
                 </div>
@@ -340,10 +340,11 @@ function ProductList({ onHomeClick }) {
                       </div>
                       <div className="product-cost">${plant.cost}</div>
                       <button
-                        className="product-button"
+                        className={`product-button ${addedToCart[plant.name] && "added-to-cart"}`}
                         onClick={() => handleAddToCart(plant)}
+                        disabled={addedToCart[plant.name]}
                       >
-                        Add to Cart
+                        {addedToCart[plant.name] ? "Added to Cart" :"Add to Cart"}
                       </button>
                     </div>
                   ))}
